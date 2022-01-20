@@ -13,10 +13,11 @@ class InfoBNTU(class_parent.Parse):
 
     def __iter__(self):
         self.cursor = 0
+        self.lenght = len(self.parser())
         return self
 
     def __next__(self):
-        if self.cursor < len(self.parser()):
+        if self.cursor < self.lenght:
             try:
                 return self.parser()[self.cursor]
             finally:
